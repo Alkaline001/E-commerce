@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M@KIDOGO GENERAL SHOE STORES</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   <div class="container">
+    <header>
+     <h1>M@KIDOGO GENERAL SHOE STORES</h1>
+     <h5>"Your one store shopping centre"</h5>
+    </header>
+    <div class="form">
+     
+     <input id ="input" style="padding: 10px;"><button onclick="addItem" 
+     style="margin-top: 15px; background-color: rgb(94, 94, 246);
+     padding: 10px;">Search</button>
+    </div>
+
+        <div class="menu">
+           <a href="#" class="btn">All</a>
+           <a href="#" class="btn">Sneakers</a>
+           <a href="#" class="btn">Men loafers</a>
+           <a href="#" class="btn">Ladies Sneakers</a> 
+           <a href="#" class="btn">Men's Glossy</a>
+        </div>
+
+
+     </div>
+    
+    </div>
+    
+    
+    <div class="container">
+        <section class="products">
+            <div class="product" data-name="Product 1" data-price="20">
+                <img src="brogue-shoes-5983822.jpg" alt="Product 1">
+                <h2>Men Leather</h2>
+                <p>$20</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="product" data-name="Product 2" data-price="30">
+                <img src="tennis-7968714_1920.png" alt="Product 2">
+                <h2>Men Sneaker</h2>
+                <p>$30</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="product" data-name="Product 3" data-price="15">
+                <img src="shoes-1897708.jpg" alt="Product 3">
+                <h2>Men Casual</h2>
+                <p>$15</p>
+                <button>Add to Cart</button>
+            </div>
+            <a href=""><button style="padding: 10px;
+            border-radius: 5px; background-color: rgb(107, 107, 232);
+            ">See more</button></a>
+        </section>
+        <div id="cart">
+            <h2>Shopping Cart</h2>
+            <ul></ul>
+            <p class="total">Total: $0</p>
+            <button type="submit" 
+            style="margin-top: 20px; padding: 10px;
+             background-color: rgb(58, 58, 211);
+             border-radius: 5px;
+             "
+             id="purchaseButton">Purchase</button>
+        </div>
+        
+    </div>
+    <script>
+        
+const products = document.querySelectorAll('.product');
+const cartList = document.querySelector('#cart ul');
+const totalDisplay = document.querySelector('#cart .total');
+let total = 0;
+
+products.forEach(product => {
+    const name = product.getAttribute('data-name');
+    const price = parseFloat(product.getAttribute('data-price'));
+
+    product.querySelector('button').addEventListener('click', () => {
+        const listItem = document.createElement('li');
+        listItem.textContent = `${name} - $${price.toFixed(2)}`;
+        cartList.appendChild(listItem);
+
+        total += price;
+        totalDisplay.textContent = `Total: $${total.toFixed(2)}`;
+    
+         
+    });
+});
+
+
+
+    </script>
+
+   <script>
+    
+ // Clear the cart on purchase
+ purchaseButton.addEventListener('click', () => {
+    if (cartList.children.length === 0) {
+        alert('Your cart is empty!');
+        return;
+    }
+
+    alert('Thank you for your purchase!');
+    cartList.innerHTML = ''; // Clear the cart list
+    total = 0; // Reset the total
+    totalDisplay.textContent = 'Total: $0';
+})
+
+   </script>
+</body>
+</html>
+
+</body>
+</html>
